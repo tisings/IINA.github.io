@@ -19,10 +19,11 @@
     <div class="artplayer-app"></div>
     <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
     <script>
+      var datas = GetQueryString("url").split('/')
       const art = new Artplayer({
         container: ".artplayer-app",
         url: GetQueryString("url"),
-        title: "你好",
+        title: decodeURI(datas[datas.length - 2]),
         poster: "./assets/sample/poster.jpg",
         volume: 0.7,
         isLive: false,
@@ -33,7 +34,7 @@
         autoMini: true,
         screenshot: true,
         setting: true,
-        loop: true,
+        loop: false,
         flip: true,
         playbackRate: true,
         aspectRatio: true,
@@ -66,7 +67,8 @@
       return context == null || context == "" || context == "undefined" ? "" : context;
       // console.log(GetQueryString(url))
       }
-      // alert(GetQueryString("url"));
+      
+      // alert(decodeURI(datas[datas.length - 2]));
 
     </script>
   </body>

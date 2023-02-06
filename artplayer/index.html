@@ -33,10 +33,11 @@
       }
       // alert(decodeURI(datas[datas.length - 2]));
       var datas = GetQueryString("url").split('/')
+      var url = GetQueryString("url")
       
       const art = new Artplayer({
         container: ".artplayer-app",
-        url: decodeURI(GetQueryString("url")),
+        url: url,
         title: decodeURI(datas[datas.length - 2]),
         poster: "./assets/sample/poster.jpg",
         volume: 0.7,

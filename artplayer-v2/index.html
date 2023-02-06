@@ -28,7 +28,7 @@
                 // autoSize: true,
             });
             setTimeout(() => {
-                art.url = decodeURI(GetQueryString("url"))
+                art.url = encodeURI(GetQueryString("url"))
             }, 1000);
 
             // 获取URL参数

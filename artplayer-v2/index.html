@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ArtPlayer - V2</title>
+        <meta charset="UTF-8" />
+        <style>
+            .artplayer-app {
+                width: 100vw;
+                height: 100vh;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="artplayer-app"></div>
+        <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
+        <script>
+            var datas = GetQueryString("url").split('/')
+            var art = new Artplayer({
+                container: '.artplayer-app',
+                autoPlayback: true,
+                title: decodeURI(datas[datas.length - 2]),
+                autoplay: true,
+                screenshot: true,
+                pip: true,
+                fullscreen: true,
+                fullscreenWeb: true,
+                airplay: true,
+                // autoSize: true,
+            });
+            setTimeout(() => {
+                art.url = GetQueryString("url")
+            }, 1000);
+
+            // 获取URL参数
+            function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+            context = r[2];
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+            // console.log(GetQueryString("url"))
+            }
+            // alert(GetQueryString("url"));
+
+        </script>
+    </body>
+</html>

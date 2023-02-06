@@ -19,7 +19,21 @@
     <div class="artplayer-app"></div>
     <script src="https://cdn.jsdelivr.net/npm/artplayer/dist/artplayer.js"></script>
     <script>
+      // 获取URL参数
+      function GetQueryString(name) {
+      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+      var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+      var context = "";
+      if (r != null)
+      context = r[2];
+      reg = null;
+      r = null;
+      return context == null || context == "" || context == "undefined" ? "" : context;
+      // console.log(GetQueryString(url))
+      }
+      // alert(decodeURI(datas[datas.length - 2]));
       var datas = GetQueryString("url").split('/')
+      
       const art = new Artplayer({
         container: ".artplayer-app",
         url: decodeURI(GetQueryString("url")),
@@ -54,21 +68,6 @@
           crossOrigin: "anonymous",
         },
       })
-
-      // 获取URL参数
-      function GetQueryString(name) {
-      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-      var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
-      var context = "";
-      if (r != null)
-      context = r[2];
-      reg = null;
-      r = null;
-      return context == null || context == "" || context == "undefined" ? "" : context;
-      // console.log(GetQueryString(url))
-      }
-      
-      // alert(decodeURI(datas[datas.length - 2]));
 
     </script>
   </body>

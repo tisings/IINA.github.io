@@ -22,7 +22,7 @@
       var datas = GetQueryString("url").split('/')
       const art = new Artplayer({
         container: ".artplayer-app",
-        url: GetQueryString("url"),
+        url: decodeURI(GetQueryString("url")),
         title: decodeURI(datas[datas.length - 2]),
         poster: "./assets/sample/poster.jpg",
         volume: 0.7,

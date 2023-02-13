@@ -1,33 +1,35 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no,minimal-ui">
-    <meta name="referrer" content="no-referrer">
-    <title>playhls - live</title>
-    <style type="text/css">
-      html, body {width:100%;height:100%;margin:auto;overflow: hidden;}
-      body {display:flex;}
-      #mse {flex:auto;}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dplayer_hls - live</title>
+    <style>
+        #dplayer {
+            max-width: 100vw;
+            height: 100vh;
+            margin: 0 auto;
+        }
     </style>
-    <script type="text/javascript">
-      window.addEventListener('resize',function(){document.getElementById('mse').style.height=window.innerHeight+'px';});
+</head>
+
+<body>
+    <div id="dplayer"></div>
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1.3.3/dist/hls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flv.js@1.6.2/dist/flv.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dplayer@1.26.0/dist/DPlayer.min.js"></script>
+    <script>
+        var dp = new DPlayer({
+            container: document.getElementById('dplayer'),
+            live: true,
+
+            video: {
+                url: 'http://baidu.live.cqccn.com/__cl/cg:live/__c/CCTVNewsHD/__op/default/__f//index.m3u8',
+            },
+        });
     </script>
-  </head>
-  <body>
-    <div id="mse"></div>
-    <script src="//unpkg.byted-static.com/xgplayer/2.31.6/browser/index.js" charset="utf-8"></script>
-    <script src="//unpkg.byted-static.com/xgplayer-hls/2.5.2/dist/index.min.js" charset="utf-8"></script>
-    <script type="text/javascript">
-      let player = new HlsPlayer({
-          id: 'mse',
-          url: 'http://hls.liveshow.bdstatic.com/live/stream_bduid_5985306016_8042356418_wz.m3u8',
-          isLive: true,
-          autoplay: true,
-          playsinline: true,
-          height: window.innerHeight,
-          width: window.innerWidth
-      });
-    </script>
-  </body>
+</body>
+
 </html>

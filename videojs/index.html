@@ -32,13 +32,29 @@
             // live: true,
             video:{
                 // url : 'https://pull-flv-f13.douyincdn.com/stage/stream-688969415167050410_hd.flv?expire=1677116508&sign=a37a463d37efaa463c7cea2a01916544&session_id=037-202302160941487FF5783BE9F5814176F4&abr_pts=-1800', /* flv直播 */
-                url : 'http://vd2.bdstatic.com//mda-nkv31e0qzsexsd1x//1080p//h264_cae//1669774140407231716//mda-nkv31e0qzsexsd1x.mp4',  /* mp4播放 */
+//                 url : 'http://vd2.bdstatic.com//mda-nkv31e0qzsexsd1x//1080p//h264_cae//1669774140407231716//mda-nkv31e0qzsexsd1x.mp4',  /* mp4播放 */
 //                 url : 'http://baidu.live.cqccn.com/__cl/cg:live/__c/CCTVNewsHD/__op/default/__f//index.m3u8',  /* m3u8直播源 */
 //                 url : 'https://ukzy.ukubf4.com/20221226/AMR8vsE6/2000kb/hls/index.m3u8', /* m3u8视频 */
-                // url : 'https://47.113.186.247/d/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/%E7%94%B5%E8%A7%86%E5%89%A7/%E5%9B%BD%E4%BA%A7%E5%89%A7/%E5%90%AC%E8%AF%B4%E4%BD%A0%E5%96%9C%E6%AC%A2%E6%88%91/%E5%90%AC%E8%AF%B4%E4%BD%A0%E5%96%9C%E6%AC%A2%E6%88%91_16_1080P.mp4', /* 高清mp4视频 */
+//                 url : 'https://47.113.186.247/d/%E6%AF%8F%E6%97%A5%E6%9B%B4%E6%96%B0/%E7%94%B5%E8%A7%86%E5%89%A7/%E5%9B%BD%E4%BA%A7%E5%89%A7/%E5%90%AC%E8%AF%B4%E4%BD%A0%E5%96%9C%E6%AC%A2%E6%88%91/%E5%90%AC%E8%AF%B4%E4%BD%A0%E5%96%9C%E6%AC%A2%E6%88%91_16_1080P.mp4', /* 高清mp4视频 */
 //                 url : 'https://pull-aliyun.memeyule.com/memeyuleNew/79001887.flv', /* 爱爱直播 - 不能播放 */
+                    url:
             }
         });
+        
+                    // 获取URL参数
+            function GetQueryString(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+            var r = window.location.search.substr(1).match(reg); //获取url中"?"符后的字符串并正则匹配
+            var context = "";
+            if (r != null)
+            context = r[2];
+            reg = null;
+            r = null;
+            return context == null || context == "" || context == "undefined" ? "" : context;
+            // console.log(GetQueryString("url"))
+            }
+            // alert(GetQueryString("url"));
+        
     </script>
 </body>
 </html>

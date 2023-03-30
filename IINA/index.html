@@ -1,19 +1,23 @@
-<!DOCTYPE html>
+<!DOCTYPE HTML>
 <html>
-<header><title>打开IINA播放器</title></header>
+
+<head>
+    <title>liveplayer</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
+    <script type="text/javascript" src="liveplayer-element.min.js"></script>
+</head>
+
 <body>
-
-    <!-- <h1>JavaScript 警告框</h1>
-
-    <button onclick="myFunction()">试一试</button> -->
-
-    <script>
-        function myFunction() {
-            var playUrl = prompt("输入视频或直播链接：");
-            // alert("你好，" + name);
-            open('iina://weblink?url=' + playUrl)
-        }
-        onload = myFunction;
-    </script>
+    <live-player stretch="false" muted="false" autoplay="true" video-url live="true" stretch="true"></live-player>
 </body>
+<script>
+    function getUrl() {
+        var playUrl = prompt("输入视频或直播链接：");
+        document.querySelector('live-player').setAttribute('video-url', playUrl);
+    }
+    window.onload = getUrl;
+</script>
+
 </html>
